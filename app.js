@@ -9,6 +9,7 @@ function Create_Custom_Element(tag, attr_tag, attr_name, value) {
 
 Add_Custom_Style(`
     @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
 
     .leftbar, .rightbar {
         background: none;
@@ -22,7 +23,7 @@ Add_Custom_Style(`
     }
     
     .backdrop {
-        background-image: url('https://raw.githubusercontent.com/MJoelMartinez/pkmn-alolan-showdown/refs/heads/master/images/bg-01.png');
+        background-image: url('https://raw.githubusercontent.com/MJoelMartinez/pkmn-alolan-showdown/refs/heads/master/images/bg-01.png') !important;
     }
 
     .statbar strong {
@@ -30,6 +31,7 @@ Add_Custom_Style(`
         padding-left: 20px;
         color: #FFFFFF;
         text-shadow: #000000 1px 1px 0, #000000 1px -1px 0, #000000 -1px 1px 0, #000000 -1px -1px 0;
+        font-family: "Jersey 10", sans-serif;
     }
 
     .turn {
@@ -39,12 +41,20 @@ Add_Custom_Style(`
         text-shadow: #000000 1px 1px 0, #000000 1px -1px 0, #000000 -1px 1px 0, #000000 -1px -1px 0;
     }
 
-    .hpbar {
-        border: none;
+    .statbar {
+        width: 174px;
+        height: 66px;
+        background-image: url('https://raw.githubusercontent.com/MJoelMartinez/pkmn-alolan-showdown/refs/heads/master/images/bg-bar-player.png');
     }
 
-    .hp {
+    .statbar .rstatbar .leftstatbar {
+        left: 20px;
+        bottom: 0px;
+    }
+
+    .statbar .hpbar .hp {
         background: #17fc24;
+        border: none;
     }
 
     .movebutton {
