@@ -165,7 +165,7 @@ try {
                             background: linear-gradient(to right, #fcb42e, #fef622); 
                         }
 
-                        .hp .hp-yellow .hp-red {
+                        .hp .hp-yellow.hp-red {
                             background: linear-gradient(to right, #d31919, #f5d538); 
                         }
                         
@@ -212,12 +212,46 @@ try {
                             opacity: 0;
                         }
 
+                        .movebutton:disabled {
+                            opacity: 50%;
+                            border-radius: 30px;
+                        }
+
                         .switchmenu button {
                             border: none;
+                            border-radius: 0;
                             background: none;
                             box-shadow: none;
                             text-shadow: none;
                             background-image: url('https://raw.githubusercontent.com/MJoelMartinez/pkmn-alolan-showdown/refs/heads/master/images/bg-switch.png');
+                        }
+
+                        .switchmenu button:hover {
+                            filter: brightness(130%);
+                            background-image: url('https://raw.githubusercontent.com/MJoelMartinez/pkmn-alolan-showdown/refs/heads/master/images/bg-switch.png');
+                        }
+
+                        .switchmenu button .hpbar {
+                            border: 1px solid #000000;
+                            background: none;
+                            border-radius: 0;
+                            left: 4px;
+                        }
+
+                        .switchmenu button .hpbar span {
+                            height: 1px;
+                            background: linear-gradient(to right, #62deb6, #12d32a);
+                            border-radius: 0;
+                        }
+
+                        .switchmenu button.disabled {
+                            border-top-right-radius: 16px;
+                            border-bottom-left-radius: 16px;
+                            opacity: 80%;
+                        }
+
+                        .movemenu, .switchmenu {
+                            padding-top: 14px;
                         }
 
                         .type-Normal {
