@@ -1,17 +1,18 @@
 const Add_Custom_Style = css => document.head.appendChild(document.createElement("style")).innerHTML = css
 
-let cssLock = 0;
-let randomBg = Math.floor((Math.random() * 3) + 1);
-
 try {
     const header = document.getElementsByClassName('inner')[0];
 
+    let cssLock = 0;
+    let randomBg = Math.floor((Math.random() * 3) + 1);
+
     const observer = new MutationObserver((mutationList) => {
         mutationList.forEach((mutation) => {
-            if (mutation.addedNodes.length && cssLock != 1){
+            if (mutation.addedNodes.length){
                 cssLock = 1;
                 let route = window.location.pathname;
                 let pathlocation = route.indexOf('battle');
+                console.log(randomBg);
 
                 if(pathlocation === 1){
                     Add_Custom_Style(`
@@ -22,6 +23,33 @@ try {
                             border: none;
                             color: #ffffff;
                             text-shadow: #000000 1px 1px 0, #000000 1px -1px 0, #000000 -1px 1px 0, #000000 -1px -1px 0;
+                            width: 104px;
+                            background-repeat: no-repeat;
+                        }
+
+                        .turn {
+                            top: 0;
+                            color: #ffffff;
+                            background: linear-gradient(to bottom, #07293f, #00566e);
+                            outline: 4px solid rgba(0, 86, 110, 0.60);
+                            height: 24px;
+                            border: none;
+                            border-radius: 0;
+                            border-bottom-left-radius: 5px;
+                            border-bottom-right-radius: 5px;
+                            padding-top: 6px;
+                        }
+
+                        .leftbar {
+                            background-image: url('https://raw.githubusercontent.com/MJoelMartinez/pkmn-alolan-showdown/refs/heads/master/images/bg-trainer-near.png');
+                            object-fit: none;
+                            object-position: top center;
+                        }
+
+                        .rightbar {
+                            background-image: url('https://raw.githubusercontent.com/MJoelMartinez/pkmn-alolan-showdown/refs/heads/master/images/bg-trainer-far.png');
+                            object-fit: none;
+                            object-position: top center;
                         }
 
                         .battle-controls, .innerbattle {
@@ -40,15 +68,41 @@ try {
                             width: 40px !important;
                             height: 40px !important;
                             position: relative;
-                            margin-bottom: 10px;
+                            top: 11px;
                         }
 
                         .trainer-far .trainersprite {
-                            right: -30px;
+                            right: -32px;
                         }
 
                         .trainer-near .trainersprite {
-                            left: -30px;
+                            left: -32px;
+                        }
+
+                        .trainer div.teamicons {
+                            width: fit-content;
+                            display: grid;
+                            position: relative;
+                            top: -10px;
+                            align-content: center;
+                            margin-top: 60px;
+                            left: unset;
+                        }
+
+                        .trainer-far .teamicons {
+                            left: 70px !important;
+                        }
+
+                        .trainer strong {
+                            text-shadow: none;
+                        }
+
+                        .trainer-far strong {
+                            padding-left: 4px;
+                        }
+
+                        .trainer-near strong {
+                            padding-right: 4px;
                         }
 
                         .statbar strong {
@@ -57,7 +111,7 @@ try {
                             color: #FFFFFF;
                             text-shadow: #000000 1px 1px 0, #000000 1px -1px 0, #000000 -1px 1px 0, #000000 -1px -1px 0;
                             font-family: "Roboto", sans-serif;
-                            padding-top: 10px;
+                            padding-top: 5px;
                         }
 
                         .statbar {
@@ -73,7 +127,7 @@ try {
                             font-weight: bold;
                             right: 26px;
                             position: absolute;
-                            top: 12px;
+                            top: 7px;
                         }
 
                         .statbar .status {
@@ -128,10 +182,6 @@ try {
                             top: -3px;
                         }
 
-                        .trainer-near {
-                            bottom: 232px;
-                        }
-
                         .movebutton {
                             font-weight: bold;
                             text-shadow: none;
@@ -155,6 +205,19 @@ try {
 
                         .megaevo {
                             border: none;
+                        }
+
+                        .moveselect, .switchselect {
+                            height: 0;
+                            opacity: 0;
+                        }
+
+                        .switchmenu button {
+                            border: none;
+                            background: none;
+                            box-shadow: none;
+                            text-shadow: none;
+                            background-image: url('https://raw.githubusercontent.com/MJoelMartinez/pkmn-alolan-showdown/refs/heads/master/images/bg-switch.png');
                         }
 
                         .type-Normal {
