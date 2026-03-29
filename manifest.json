@@ -3,10 +3,11 @@
     "name": "Pokemon Alolan Showdown",
     "description": "Changes the battle UI of Pokemon Showdown to one inspired by the Sun and Moon games.",
     "version": "1.0",
+    "host_permissions": ["https://play.pokemonshowdown.com/*"],
     "content_scripts": [
         {
             "matches": [
-                "https://play.pokemonshowdown.com/battle*"
+                "https://play.pokemonshowdown.com/*"
             ],
             "js": [
                 "app.js"
@@ -20,6 +21,6 @@
         "128": "images/icon-128.png"
     },
     "permissions": [
-        "tabs"
+        "storage", "tabs"
     ]
 }
