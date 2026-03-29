@@ -4,17 +4,15 @@ try {
     const header = document.getElementsByClassName('inner')[0];
 
     let cssLock = 0;
-    let randomBg = Math.floor((Math.random() * 3) + 1);
+    let randomBg = Math.floor((Math.random() * 9) + 1);
 
     const observer = new MutationObserver((mutationList) => {
         mutationList.forEach((mutation) => {
             if (mutation.addedNodes.length){
-                cssLock = 1;
                 let route = window.location.pathname;
                 let pathlocation = route.indexOf('battle');
-                console.log(randomBg);
 
-                if(pathlocation === 1){
+                if(pathlocation === 1 && cssLock != 1){
                     Add_Custom_Style(`
                         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -362,6 +360,7 @@ try {
                             background-image: url('https://raw.githubusercontent.com/MJoelMartinez/pkmn-alolan-showdown/refs/heads/master/images/move-fairy.png') !important;
                         }
                     `)
+                    cssLock = 1;
                     observer.disconnect();
                 }
                 
